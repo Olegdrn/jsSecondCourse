@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Интернет-магазин</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <div class="container">
+        <div class="cart">
+          <div class="right_head">
+            <!-- <form action="#" class="search-form" @submit.prevent="filter">
+              <input type="text" class="search-field" v-model="userSearch">
+              <button type="submit" class="btn-search">
+                <i class="fas fa-search"></i>
+              </button>
+            </form> -->
+            <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
+          </div>
+        </div>
+    </header>
+
+    <div class="basket-item" v-show="showCart">
+      <p v-if="!cartItems.length">Корзина пуста</p>
+      <div class="cart-item" v-for="item of cartItems" :key="item.id_product">
+        <div class="product-bio">
+          <img src="image/notebook.png" alt="logo3'" class="basketProduct_img" alt="Ooops">
+          <div class="product-desc">
+            <div class="product-title">{{ item.product_name }}</div>
+            <div class="product-quantity">Quantity: {{ item.quantity }}</div>
+            <div class="product-price">$ {{ item.price }} each</div>
+          </div>
+        </div>
+        <div class="right-block">
+          <div class="product-totalprice">{{item.quantity*item.price}}</div>
+          <button class="del-btn" @click="remove(item)">&times;</button>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <div class="products container">
+        <div class="product-item" v-for="product of filtered" :key="product.id_product">
+          <img src="image/notebook.png" alt="logo3" class="product_img" alt="Some img">
+          <div class="desc">
+            <h3>{{product.product_name}}</h3>
+            <p>{{product.price}}</p>
+            <button class="buy-btn" @click="addProduct(product)">Купить</button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="FilterComp.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
