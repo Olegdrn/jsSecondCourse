@@ -20,18 +20,10 @@
             <div class="head container">
                 <div class="Head_img">
                     <div class="left_img">
-                        <div class="first_img"><a href="index.html"> <img src="image/header/logo.png" alt="logo"></a>
+                        <div class="first_img"><a href="./html/index.html"> <img src="image/header/logo.png"
+                                    alt="logo"></a>
                         </div>
-                        <div>
-                            <!-- <a href="#"><img src="image/header/search.png" alt="logo1"></a> -->
-                            <!-- <search></search> -->
-                            <form action="#" class="search-form" @submit.prevent="filter">
-                                <input type="text" class="search-field" v-model="userSearch">
-                                <button type="submit" class="btn-search">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </form>
-                        </div>
+                        <search></search>
                     </div>
                     <div class="right_img">
                         <div class="third_img">
@@ -67,14 +59,14 @@
                                 </li>
                             </ul>
                         </nav>
-                        <div class="fourth_img"><a href="registration.html"><img src="image/header/Forma 1.png"
+                        <div class="fourth_img"><a href="./html/registration.html"><img src="image/header/Forma 1.png"
                                     alt="logo3"></a>
                         </div>
                         <div class="fifth_img">
-                            <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
+                            <button class="btn-cart" type="button" @click="showCart = !showCart">Bag</button>
                         </div>
                         <div class="basket-item" v-show="showCart">
-                            <p v-if="!cartItems.length">Корзина пуста</p>
+                            <p v-if="!cartItems.length">Shopping cart is empty</p>
                             <div class="cart-item" v-for="item of cartItems" :key="item.id_product">
                                 <div class="product-bio">
                                     <img :src="item.img" alt="img" class="basketProduct_img" alt="Ooops">
@@ -90,20 +82,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- <div class="basket hidden">
-                            <div class="basketRow basketHeader">
-                                <div>Название товара</div>
-                                <div>Количество</div>
-                                <div>Цена за шт.</div>
-                                <div>Итого</div>
-                            </div>
-
-                            <div class="basketTotal">
-                                Товаров в корзине на сумму:
-                                $<span class="basketTotalValue">0</span>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -174,174 +152,16 @@
             <main>
                 <div class="products container">
                     <div class="product-item" v-for="product of filtered" :key="product.id_product">
-                        <!-- <img class="img_product_link" src="image/product_line/image_card_1.jpg" alt="none"> -->
                         <div class="desc">
                             <img class="img_product_link" :src="product.img" alt="none">
-                            <!-- image/catalog/sixth_img.jpg -->
                             <h3>{{product.product_name}}</h3>
                             <p>{{product.price}}</p>
-                            <button class="buy-btn" @click="addProduct(product)">Купить</button>
+                            <button class="buy-btn" @click="addProduct(product)">Add to Bag</button>
                         </div>
                     </div>
 
                 </div>
             </main>
-            <!-- <div class="first_product_line">
-            <div class="product_elements" data-id="1" data-name="ELLERY X M'O CAPSULE1" data-price="52">
-                <a class="product_link_content" href="#">
-                    <img class="img_product_link" src="image/product_line/image_card_1.jpg" alt="none">
-                    <div class="content_product_card">
-                        <p class="pp_card">ELLERY X M'O CAPSULE</p>
-                        <p class="ppp_card">Known for her sculptural takes on traditional tailoring, Australian arbiter
-                            of cool Kym Ellery teams up with Moda Operandi.</p>
-                        <p class="pppp_card">$52.00</p>
-                    </div>
-                </a>
-                <div class="hover_img">
-                    <a class="hover_img_link" href="#">
-                        <img class="img_hover_img_link" src="image/product_line/card_img.png" alt="noth">
-                        <p class="ppppp_card"> Add to Cart</p>
-                    </a>
-                </div>
-            </div>
-            <div class="product_elements" data-id="2" data-name="ELLERY X M'O CAPSULE2" data-price="60">
-                <a class="product_link_content" href="#">
-                    <div class="img_zpa"><img class="img_product_link_cat" src="image/catalog/2man.png" alt="none">
-                    </div>
-                    <div class="content_product_card">
-                        <p class="pp_card">ELLERY X M'O CAPSULE_2</p>
-                        <p class="ppp_card">Known for her sculptural takes on traditional tailoring, Australian arbiter
-                            of cool Kym Ellery teams up with Moda Operandi.</p>
-                        <p class="pppp_card">$60.00</p>
-                    </div>
-                </a>
-                <div class="hover_img">
-                    <a class="hover_img_link" href="#">
-                        <img class="img_hover_img_link" src="image/product_line/card_img.png" alt="noth">
-                        <p class="ppppp_card"> Add to Cart</p>
-                    </a>
-                </div>
-            </div>
-            <div class="product_elements">
-                <a class="product_link_content" href="#">
-                    <img class="img_product_link" src="image/product_line/image_card_3.jpg" alt="none">
-                    <div class="content_product_card">
-                        <p class="pp_card">ELLERY X M'O CAPSULE</p>
-                        <p class="ppp_card">Known for her sculptural takes on traditional tailoring, Australian arbiter
-                            of cool Kym Ellery teams up with Moda Operandi.</p>
-                        <p class="pppp_card">$52.00</p>
-                    </div>
-                </a>
-                <div class="hover_img">
-                    <a class="hover_img_link" href="#">
-                        <img class="img_hover_img_link" src="image/product_line/card_img.png" alt="noth">
-                        <p class="ppppp_card"> Add to Cart</p>
-                    </a>
-                </div>
-            </div>
-            <div class="product_elements">
-                <a class="product_link_content" href="#">
-                    <img class="img_product_link" src="image/product_line/image_card_4.jpg" alt="none">
-                    <div class="content_product_card">
-                        <p class="pp_card">ELLERY X M'O CAPSULE</p>
-                        <p class="ppp_card">Known for her sculptural takes on traditional tailoring, Australian arbiter
-                            of cool Kym Ellery teams up with Moda Operandi.</p>
-                        <p class="pppp_card">$52.00</p>
-                    </div>
-                </a>
-                <div class="hover_img">
-                    <a class="hover_img_link" href="#">
-                        <img class="img_hover_img_link" src="image/product_line/card_img.png" alt="noth">
-                        <p class="ppppp_card"> Add to Cart</p>
-                    </a>
-                </div>
-            </div>
-            <div class="product_elements">
-                <a class="product_link_content" href="#">
-                    <img class="img_product_link" src="image/catalog/fourth_img.jpg" alt="none">
-                    <div class="content_product_card">
-                        <p class="pp_card">ELLERY X M'O CAPSULE</p>
-                        <p class="ppp_card">Known for her sculptural takes on traditional tailoring, Australian arbiter
-                            of cool Kym Ellery teams up with Moda Operandi.</p>
-                        <p class="pppp_card">$52.00</p>
-                    </div>
-                </a>
-                <div class="hover_img">
-                    <a class="hover_img_link" href="#">
-                        <img class="img_hover_img_link" src="image/product_line/card_img.png" alt="noth">
-                        <p class="ppppp_card"> Add to Cart</p>
-                    </a>
-                </div>
-            </div>
-            <div class="product_elements">
-                <a class="product_link_content" href="#">
-                    <img class="img_product_link" src="image/catalog/fifth_img.jpg" alt="none">
-                    <div class="content_product_card">
-                        <p class="pp_card">ELLERY X M'O CAPSULE</p>
-                        <p class="ppp_card">Known for her sculptural takes on traditional tailoring, Australian arbiter
-                            of cool Kym Ellery teams up with Moda Operandi.</p>
-                        <p class="pppp_card">$52.00</p>
-                    </div>
-                </a>
-                <div class="hover_img">
-                    <a class="hover_img_link" href="#">
-                        <img class="img_hover_img_link" src="image/product_line/card_img.png" alt="noth">
-                        <p class="ppppp_card"> Add to Cart</p>
-                    </a>
-                </div>
-            </div>
-            <div class="product_elements">
-                <a class="product_link_content" href="#">
-                    <img class="img_product_link" src="image/catalog/sixth_img.jpg" alt="none">
-                    <div class="content_product_card">
-                        <p class="pp_card">ELLERY X M'O CAPSULE</p>
-                        <p class="ppp_card">Known for her sculptural takes on traditional tailoring, Australian arbiter
-                            of cool Kym Ellery teams up with Moda Operandi.</p>
-                        <p class="pppp_card">$52.00</p>
-                    </div>
-                </a>
-                <div class="hover_img">
-                    <a class="hover_img_link" href="#">
-                        <img class="img_hover_img_link" src="image/product_line/card_img.png" alt="noth">
-                        <p class="ppppp_card"> Add to Cart</p>
-                    </a>
-                </div>
-            </div>
-            <div class="product_elements">
-                <a class="product_link_content" href="#">
-                    <img class="img_product_link" src="image/catalog/seveth_img.jpg" alt="none">
-                    <div class="content_product_card">
-                        <p class="pp_card">ELLERY X M'O CAPSULE</p>
-                        <p class="ppp_card">Known for her sculptural takes on traditional tailoring, Australian arbiter
-                            of cool Kym Ellery teams up with Moda Operandi.</p>
-                        <p class="pppp_card">$52.00</p>
-                    </div>
-                </a>
-                <div class="hover_img">
-                    <a class="hover_img_link" href="#">
-                        <img class="img_hover_img_link" src="image/product_line/card_img.png" alt="noth">
-                        <p class="ppppp_card"> Add to Cart</p>
-                    </a>
-                </div>
-            </div>
-            <div class="product_elements">
-                <a class="product_link_content" href="#">
-                    <img class="img_product_link" src="image/catalog/eighth_img.jpg" alt="none">
-                    <div class="content_product_card">
-                        <p class="pp_card">ELLERY X M'O CAPSULE</p>
-                        <p class="ppp_card">Known for her sculptural takes on traditional tailoring, Australian arbiter
-                            of cool Kym Ellery teams up with Moda Operandi.</p>
-                        <p class="pppp_card">$52.00</p>
-                    </div>
-                </a>
-                <div class="hover_img">
-                    <a class="hover_img_link" href="#">
-                        <img class="img_hover_img_link" src="image/product_line/card_img.png" alt="noth">
-                        <p class="ppppp_card"> Add to Cart</p>
-                    </a>
-                </div>
-            </div>
-        </div> -->
         </section>
 
         <nav class="pagination_">
@@ -439,10 +259,8 @@
         </footer>
 
     </div>
-    <!-- <script src="Menu.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- <script src="trashBin.js"></script> -->
-    <!-- <script src="search_new.js"></script> -->
+    <script src="search_new.js"></script>
     <script src="main.js"></script>
 </body>
 

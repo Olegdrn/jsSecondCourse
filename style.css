@@ -1326,6 +1326,12 @@ summary::-webkit-details-marker {
   cursor: pointer;
 }
 
+.buy-btn:hover {
+  background-color: #636363;
+  color: #F16D7F;
+  cursor: pointer;
+}
+
 summary ::after {
   content: url(image/catalog/filter_vector.svg);
   padding-left: 11px;
